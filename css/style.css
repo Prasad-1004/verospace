@@ -161,20 +161,20 @@ body {
    BANNER SECTION
    ========================================================================== */
 .banner-section {
-  height: 100vh;
+  min-height: 100vh;
   position: relative;
+  padding: 20px 0;
 }
 
 .banner-section .fluid-container {
-  
+  min-height: inherit;
 }
 
-.banner-section .fluid-container .container-wrapper {
-  width: 100%;
-  height: 662px;
-  background: url(../assets/homepage/Group\ 68.png) no-repeat center/cover;
-  background-position: center top 20px; /* 👈 Moves image 20px down */
-  /* height: 100vh; */
+.container-wrapper {
+  min-height: inherit;
+  /* min-height: 662px; */
+  background: url("../assets/homepage/banner.png") no-repeat center/cover;
+
   color: white;
   display: flex;
   align-items: center;
@@ -240,9 +240,9 @@ body {
   transition: transform 0.3s ease;
 }
 
-.card:hover {
+/* .card:hover {
   transform: translateY(-8px);
-}
+} */
 
 .icon-box {
   width: 60px;
@@ -735,8 +735,6 @@ body {
   align-items: center;
 } */
 
-
-
 /* ===== Companies Section ===== */
 .trusted-companies {
   padding: 40px 0;
@@ -790,17 +788,6 @@ body {
   max-height: 100%;
   object-fit: contain;
 }
-
-
-
-
-
-
-
-
-
-
-
 
 /* ==========================================================================
    NEWSLETTER SECTION
@@ -1290,7 +1277,95 @@ body {
    EXTRA SMALL SCREENS
    ========================================================================== */
 
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 576px) {
+
+
+  /* Navbar Section */
+
+  .logo {
+    margin-bottom: 0px;
+  }
+
+  .logo-icon {
+    height: 25px;
+  }
+
+  .burger {
+    
+    width: 15px;
+    height: 15px;
+    
+  }
+
+  .burger input {
+    display: none;
+  }
+
+  .burger span {
+    display: block;
+    position: absolute;
+    height: 2px;
+    width: 100%;
+    background: black;
+    border-radius: 9px;
+    opacity: 1;
+    left: 0;
+    transform: rotate(0deg);
+    transition: 0.25s ease-in-out;
+  }
+
+  .burger span:nth-of-type(1) {
+    top: 2px;
+    transform-origin: left center;
+  }
+
+  .burger span:nth-of-type(2) {
+    top: 50%;
+    transform: translateY(-50%);
+    transform-origin: left center;
+  }
+
+  .burger span:nth-of-type(3) {
+    top: 89%;
+    transform-origin: left center;
+    transform: translateY(-100%);
+  }
+
+  .burger input:checked ~ span:nth-of-type(1) {
+    transform: rotate(45deg);
+    top: 0px;
+    left: 5px;
+  }
+
+  .burger input:checked ~ span:nth-of-type(2) {
+    width: 0%;
+    opacity: 0;
+  }
+
+  .burger input:checked ~ span:nth-of-type(3) {
+    transform: rotate(-45deg);
+    top: 11px;
+    left: 4px;
+  }
+
+
+
+
+
+  /* BAnner Section */
+
+  .fluid-container {
+    padding:  0 10px;
+  }
+
+  .banner-section {
+    padding: 15px 0;
+  }
+
+  .hero-content h1 {
+    font-size: 1.2rem;
+  }
+
   /* Property Listing Section */
   .header h2 {
     font-size: 20px;
