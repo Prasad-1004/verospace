@@ -149,7 +149,7 @@
                 friend, every step of the way.
               </p>
 
-              <div class="stats">
+              <!-- <div class="stats">
                 <div class="stat-box">
                   <img
                     src="./assets/homepage/fa-solid_smile.png"
@@ -172,6 +172,33 @@
                     alt="Properties Listed"
                   />
                   <h3>75K+</h3>
+                  <p>Property Listed</p>
+                </div>
+              </div> -->
+
+              <div class="stats">
+                <div class="stat-box">
+                  <img
+                    src="./assets/homepage/fa-solid_smile.png"
+                    alt="Happy Customers"
+                  />
+                  <h3 data-target="15000">0</h3>
+                  <p>Trusted Customer</p>
+                </div>
+                <div class="stat-box">
+                  <img
+                    src="./assets/homepage/gridicons_house.png"
+                    alt="Houses Sold"
+                  />
+                  <h3 data-target="20000">0</h3>
+                  <p>Houses Sold</p>
+                </div>
+                <div class="stat-box">
+                  <img
+                    src="./assets/homepage/fluent_agents-28-filled.png"
+                    alt="Properties Listed"
+                  />
+                  <h3 data-target="75000">0</h3>
                   <p>Property Listed</p>
                 </div>
               </div>
@@ -216,7 +243,7 @@
                       />
                       <span>Berlin, Germany</span>
                     </div>
-                    <button class="details-btn">Details</button>
+                    <a href="./property_details.html" class="details-btn">Details</a>
                   </div>
                 </div>
               </div>
@@ -237,7 +264,7 @@
                   </div>
                   <div class="property-actions">
                     <div class="location">Berlin, Germany</div>
-                    <button class="details-btn">Details</button>
+                    <a href="./property_details.html" class="details-btn">Details</a>
                   </div>
                 </div>
               </div>
@@ -258,7 +285,7 @@
                   </div>
                   <div class="property-actions">
                     <div class="location">Berlin, Germany</div>
-                    <button class="details-btn">Details</button>
+                    <a href="./property_details.html" class="details-btn">Details</a>
                   </div>
                 </div>
               </div>
@@ -279,7 +306,7 @@
                   </div>
                   <div class="property-actions">
                     <div class="location">Berlin, Germany</div>
-                    <button class="details-btn">Details</button>
+                    <a href="./property_details.html" class="details-btn">Details</a>
                   </div>
                 </div>
               </div>
@@ -504,16 +531,17 @@
           <h2 class="properties-title">Our Properties</h2>
           <div class="properties-content">
             <div class="first-row">
-              <img src="./assets/homepage/Rectangle 48.png" alt="Property" />
-              <img src="./assets/homepage/Rectangle 49.png" alt="Property" />
-              <img src="./assets/homepage/Rectangle 50.png" alt="Property" />
-              <img src="./assets/homepage/Rectangle 51.png" alt="Property" />
+              <a href="./properties.html"><img src="./assets/homepage/Rectangle 48.png" alt="Property" /></a>
+              <a href="./properties.html"><img src="./assets/homepage/Rectangle 49.png" alt="Property" /></a>
+              <a href="./properties.html"><img src="./assets/homepage/Rectangle 50.png" alt="Property" /></a>
+              <a href="./properties.html"><img src="./assets/homepage/Rectangle 51.png" alt="Property" /></a>
+              
             </div>
             <div class="second-row">
-              <img src="./assets/homepage/Rectangle 52.png" alt="Property" />
-              <img src="./assets/homepage/Rectangle 53.png" alt="Property" />
-              <img src="./assets/homepage/Rectangle 54.png" alt="Property" />
-              <img src="./assets/homepage/Rectangle 55.png" alt="Property" />
+              <a href="./properties.html"><img src="./assets/homepage/Rectangle 52.png" alt="Property" /></a>
+              <a href="./properties.html"><img src="./assets/homepage/Rectangle 53.png" alt="Property" /></a>
+              <a href="./properties.html"><img src="./assets/homepage/Rectangle 54.png" alt="Property" /></a>
+              <a href="./properties.html"><img src="./assets/homepage/Rectangle 55.png" alt="Property" /></a>
             </div>
           </div>
         </div>
@@ -543,6 +571,7 @@
       const swiper = new Swiper(".propertySwiper", {
         slidesPerView: 1,
         spaceBetween: 20,
+        loop: true,
         autoplay: {
           delay: 3000,
           disableOnInteraction: false,
@@ -646,6 +675,30 @@
           },
         }
       );
+
+      // About us Section Counter
+
+      const counters = document.querySelectorAll(".stat-box h3");
+      const speed = 100; // adjust speed if needed
+
+      counters.forEach((counter) => {
+        const updateCount = () => {
+          const target = +counter.getAttribute("data-target");
+          const count = +counter.innerText;
+          const increment = target / speed;
+
+          if (count < target) {
+            counter.innerText = Math.ceil(count + increment);
+            setTimeout(updateCount, 20);
+          } else {
+            // Show in K+ format
+            const finalValue = (target / 1000).toFixed(0) + "K+";
+            counter.innerText = finalValue;
+          }
+        };
+
+        updateCount();
+      });
     </script>
   </body>
 </html>

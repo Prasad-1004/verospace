@@ -250,7 +250,7 @@ body {
   width: 60px;
   height: 60px;
   margin: 0 auto 15px;
-  background-color: #f4ecff;
+
   border-radius: 12px;
   display: flex;
   align-items: center;
@@ -1075,6 +1075,10 @@ body {
   margin-bottom: 10px;
 }
 
+.first-row a , .second-row a {
+  display: contents;
+}
+
 .first-row,
 .second-row {
   max-width: 404px;
@@ -1086,7 +1090,7 @@ body {
 .second-row img {
   width: calc(25% - 8px);
   height: auto;
-  object-fit: cover;
+  object-fit: contain;
 }
 
 /* Second Footer */
@@ -1425,12 +1429,21 @@ body {
 
   /* BAnner Section */
 
+  .container-wrapper {
+    min-height: 576px;
+  }
+
   .fluid-container {
     padding: 0 10px;
   }
 
   .banner-section {
+    min-height: 90vh;
     padding: 15px 0;
+  }
+
+  .hero-content {
+    padding-inline: 8px;
   }
 
   .hero-content h1 {
@@ -1438,6 +1451,11 @@ body {
   }
 
   /* About us Section */
+
+  .apartment-types {
+    padding: 0px 0px;
+    text-align: center;
+  }
 
   .stats {
     gap: 10px;
@@ -1463,6 +1481,16 @@ body {
 
   .property-image {
     height: 160px;
+  }
+
+  /* Testimonial Section */
+
+  .testimonial-section .testimonial-card {
+    max-width: 83%;
+  }
+
+  .white-box {
+    right: -20px;
   }
 
   /* Newsletter Section */
