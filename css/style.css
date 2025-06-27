@@ -57,6 +57,7 @@ body {
   width: 20%;
   display: flex;
   justify-content: center;
+  padding: 0 15px;
 }
 
 .col6 {
@@ -238,6 +239,7 @@ body {
   text-align: center;
   width: 160px;
   transition: transform 0.3s ease;
+  margin-bottom: 15px;
 }
 
 /* .card:hover {
@@ -312,6 +314,7 @@ body {
   align-items: center;
   display: flex;
   flex-direction: column;
+  margin: 0 auto;
 }
 
 .about-label {
@@ -335,14 +338,16 @@ body {
 
 .stats {
   display: flex;
-  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 100%;
+  /* flex-wrap: wrap; */
   gap: 30px;
 }
 
 .stat-box {
   text-align: center;
   flex: 1;
-  min-width: 120px;
+  max-width: 120px;
   background: #f7f7f7;
   padding: 20px 10px;
   border-radius: 15px;
@@ -369,9 +374,9 @@ body {
 /* ==========================================================================
    PROPERTY LISTING SECTION
    ========================================================================== */
-.property-listing {
+/* .property-listing {
   padding-bottom: 60px;
-}
+} */
 
 .new-list {
   display: flex;
@@ -418,7 +423,7 @@ body {
 /* Swiper Styles */
 .swiper {
   width: 100%;
-  height: auto;
+  height: 420px;
   padding: 20px 0 40px 0;
 }
 
@@ -515,8 +520,15 @@ body {
 }
 
 .details-btn:hover {
-  background: #3182ce;
+  background: #543ad7;
   transform: scale(1.05);
+}
+
+.swiper-pagination-bullet-active {
+  background: #8b00ff !important;
+  width: 40px !important;
+  height: 6px !important;
+  border-radius: 20px !important;
 }
 
 /* ==========================================================================
@@ -527,6 +539,7 @@ body {
   max-width: 1200px;
   margin: auto;
   background-color: #f9f9f9;
+  padding: 0 15px; /* Add padding for mobile */
 }
 
 .testimonial-section .testimonial-header p {
@@ -556,16 +569,18 @@ body {
   background-position: center;
   border-radius: 20px;
   display: flex;
+  justify-content: center;
 }
 
 .testimonial-section .testimonial-card {
   border-radius: 12px;
+  width: 100%;
   max-width: 511px;
-  width: 70%;
   min-height: 370px;
   text-align: left;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   position: relative;
+  overflow: visible; /* Allow white box to extend outside */
 }
 
 /* Testimonial Card Background Classes */
@@ -582,16 +597,19 @@ body {
 }
 
 .white-box {
-  max-width: 340px;
-  min-height: 260px;
   background-color: white;
   border-radius: 20px;
   position: absolute;
   top: 55px;
-  right: -110px;
-  padding: 23px 40px;
   text-align: center;
   line-height: 20px;
+  max-width: 340px;
+  min-height: 260px;
+  padding: 23px 25px; /* Adjusted padding */
+
+  /* Responsive right positioning */
+  right: -80px; /* Reduced from -110px for better mobile fit */
+  width: 300px; /* Fixed width for consistency */
 }
 
 .white-box p {
@@ -659,134 +677,244 @@ body {
   font-weight: bold;
 }
 
+/* Tablet adjustments */
+@media (max-width: 1024px) {
+  .white-box {
+    right: -60px;
+    width: 280px;
+    padding: 20px 22px;
+  }
+}
+
+/* Mobile specific adjustments */
+@media (max-width: 768px) {
+  .testimonial-section .testimonial-header h2 {
+    font-size: 24px;
+    margin-bottom: 30px;
+  }
+
+  .testimonial-section .testimonial-card {
+    min-height: 350px;
+    max-width: 100%;
+  }
+
+  .white-box {
+    right: -40px; /* Reduced right offset for mobile */
+    width: 260px;
+    padding: 18px 20px;
+    min-height: 240px;
+    top: 50px;
+  }
+
+  .testimonial-section .testimonial-profile {
+    margin-top: 35px;
+  }
+
+  .testimonial-section .swiper-button-next,
+  .testimonial-section .swiper-button-prev {
+    width: 35px;
+    height: 35px;
+  }
+
+  .testimonial-section .swiper-button-next::after,
+  .testimonial-section .swiper-button-prev::after {
+    font-size: 16px;
+  }
+}
+
+/* Extra small screens */
+@media (max-width: 480px) {
+  .testimonial-section {
+    padding: 0 10px;
+  }
+
+  .testimonial-section .testimonial-header h2 {
+    font-size: 22px;
+  }
+
+  .testimonial-section .testimonial-card {
+    min-height: 320px;
+  }
+
+  .white-box {
+    right: -20px; /* Further reduced for very small screens */
+    width: 240px;
+    padding: 16px 18px;
+    min-height: 220px;
+    top: 45px;
+  }
+
+  .white-box p {
+    font-size: 13px;
+    line-height: 22px;
+    margin-bottom: 15px;
+  }
+
+  .testimonial-section .testimonial-profile {
+    margin-top: 30px;
+    gap: 10px;
+  }
+
+  .testimonial-section .testimonial-profile img {
+    width: 40px;
+    height: 40px;
+  }
+
+  .testimonial-section .testimonial-profile h4 {
+    font-size: 15px;
+  }
+
+  .testimonial-section .stars {
+    font-size: 13px;
+  }
+}
+
+/* Very small screens */
+@media (max-width: 360px) {
+  .white-box {
+    right: -10px;
+    width: 220px;
+    padding: 14px 16px;
+    min-height: 200px;
+  }
+
+  .white-box p {
+    font-size: 12px;
+    line-height: 20px;
+  }
+
+  .testimonial-section .testimonial-profile h4 {
+    font-size: 14px;
+  }
+}
 /* ==========================================================================
    TRUSTED COMPANIES SECTION
    ========================================================================== */
-/* .trusted-companies {
-  padding: 40px 0px;
-  background-color: #f8f9fa;
-  text-align: center;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.trusted-heading {
-  font-size: 24px;
-  color: #333;
-  margin-bottom: 30px;
-  font-weight: 600;
-}
-
-.trusted-companies .swiper-container {
-  width: 100%;
-  overflow: hidden;
-}
-
-.trusted-companies .swiper-wrapper {
-  transition-timing-function: linear !important;
-  align-items: center;
-}
-
-.trusted-companies .swiper-slide {
-  background: white;
-  border-radius: 6px;
-  padding: 15px;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
-  height: auto;
-  width: 180px !important;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-}
-
-.company-category {
-  font-size: 10px;
-  color: #666;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  margin-bottom: 5px;
-}
-
-.company-name {
-  font-size: 14px;
-  font-weight: 600;
-  color: #222;
-  margin-top: 8px;
-}
-
-.logo-placeholder {
-  width: 60px;
-  height: 30px;
-  background-color: #f0f0f0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #999;
-  font-size: 8px;
-  margin: 5px 0;
-}
-
-.properties-content {
-  display: flex;
-  flex-direction: column;
-  row-gap: 10px;
-  align-items: center;
-} */
 
 /* ===== Companies Section ===== */
 .trusted-companies {
-  padding: 40px 0;
-  background-color: #f8f9fa;
+  padding: 60px 0;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
   text-align: center;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.trusted-heading {
-  font-size: 24px;
-  color: #333;
-  margin-bottom: 30px;
-  font-weight: 600;
-}
-
-.trusted-swiper {
-  width: 100%;
   overflow: hidden;
 }
 
-.trusted-swiper .swiper-wrapper {
-  transition-timing-function: linear;
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.trusted-heading {
+  font-size: 32px;
+  color: #2c3e50;
+  margin-bottom: 50px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+.trusted-companies-swiper {
+  width: 100%;
+  overflow: hidden;
+  padding: 20px 0;
+}
+
+.trusted-companies-swiper .swiper-wrapper {
+  transition-timing-function: linear !important;
   display: flex;
   align-items: center;
 }
 
-.trusted-swiper .swiper-slide {
+.trusted-companies-swiper .swiper-slide {
+  width: 200px !important;
+  height: 100px;
   background: white;
-  border-radius: 6px;
-  padding: 15px;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
-  width: 180px !important;
-  height: auto;
-  display: flex;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  display: flex !important;
   justify-content: center;
   align-items: center;
   flex-shrink: 0;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid rgba(0, 0, 0, 0.05);
 }
 
-.company-logo {
+.trusted-companies-swiper .swiper-slide:hover {
+  /* transform: translateY(-5px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15); */
+}
+
+.trusted-companies .logo-placeholder {
   width: 100%;
-  height: 30px;
+  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
 }
 
-.company-logo img {
-  max-width: 100%;
-  max-height: 100%;
+.trusted-companies .logo-placeholder img {
+  max-width: 120px;
+  max-height: 60px;
   object-fit: contain;
+  filter: grayscale(100%) opacity(0.7);
+  transition: filter 0.3s ease;
+}
+
+.trusted-companies-swiper .swiper-slide:hover .logo-placeholder img {
+  filter: grayscale(0%) opacity(1);
+}
+
+/* Fallback for missing images */
+.trusted-companies .logo-placeholder::before {
+  content: "";
+  width: 80px;
+  height: 40px;
+  background: linear-gradient(45deg, #e9ecef, #dee2e6);
+  border-radius: 4px;
+  position: absolute;
+  z-index: -1;
+}
+
+/* Company name fallback */
+.trusted-companies .logo-placeholder::after {
+  content: "Company Logo";
+  color: #6c757d;
+  font-size: 12px;
+  font-weight: 500;
+  position: absolute;
+  z-index: -1;
+}
+
+@media (max-width: 768px) {
+  .trusted-heading {
+    font-size: 24px;
+    margin-bottom: 30px;
+  }
+
+  .trusted-companies-swiper .swiper-slide {
+    width: 160px !important;
+    height: 80px;
+    padding: 15px;
+  }
+
+  .trusted-companies .logo-placeholder img {
+    max-width: 100px;
+    max-height: 50px;
+  }
+}
+
+@media (max-width: 480px) {
+  .trusted-companies {
+    padding: 40px 0;
+  }
+
+  .trusted-companies-swiper .swiper-slide {
+    width: 140px !important;
+    height: 70px;
+    padding: 12px;
+  }
 }
 
 /* ==========================================================================
@@ -943,6 +1071,10 @@ body {
   margin-bottom: 15px;
 }
 
+.first-row {
+  margin-bottom: 10px;
+}
+
 .first-row,
 .second-row {
   max-width: 404px;
@@ -998,7 +1130,7 @@ body {
 @media screen and (max-width: 1023px) {
   /* Apartment Types Section */
   .col2 {
-    width: 40%;
+    width: 50%;
   }
 
   /* About Section */
@@ -1009,6 +1141,11 @@ body {
   .col6 {
     width: 100%;
     padding: 0 15px;
+  }
+
+  .text-area {
+    text-align: center;
+    padding-bottom: 40px;
   }
 }
 
@@ -1107,19 +1244,14 @@ body {
     left: 5px;
   }
 
+  /* New */
+
   /* Banner Section */
   .hero-content h1 {
     font-size: 2rem;
   }
 
   /* Apartment Types Section */
-  .apartment-types .container .row {
-    gap: 20px;
-  }
-
-  .card {
-    width: 45%;
-  }
 
   /* Property Listing Section */
   .header {
@@ -1190,10 +1322,12 @@ body {
   /* Footer Section */
   .footer-brand {
     width: calc(50% - 15px);
+    text-align: start;
   }
 
   .footer-links {
     width: calc(50% - 15px);
+    text-align: end;
   }
 
   .our-properties {
@@ -1218,68 +1352,11 @@ body {
    TESTIMONIAL RESPONSIVE STYLES
    ========================================================================== */
 
-@media (max-width: 767px) {
-  .testimonial-section .testimonialSwiper {
-    padding: 20px 0 60px;
-  }
-
-  .testimonial-section .testimonial-slide {
-    padding: 0 15px;
-    justify-content: center;
-  }
-
-  .testimonial-section .testimonial-card {
-    width: 100%;
-    min-height: auto;
-    padding: 20px 10px;
-  }
-
-  .white-box {
-    position: static;
-    width: 100%;
-    padding: 20px;
-    margin-top: 20px;
-    right: auto;
-    top: auto;
-    transform: none;
-  }
-
-  .testimonial-section .testimonial-profile {
-    flex-direction: row;
-    justify-content: center;
-    text-align: left;
-  }
-
-  .testimonial-section .testimonial-profile img {
-    width: 40px;
-    height: 40px;
-  }
-
-  .testimonial-section .testimonial-profile h4 {
-    font-size: 14px;
-  }
-
-  .testimonial-section .stars {
-    font-size: 12px;
-  }
-
-  .testimonial-section .swiper-button-next,
-  .testimonial-section .swiper-button-prev {
-    display: none;
-  }
-
-  .testimonial-section .swiper-pagination {
-    display: block;
-  }
-}
-
 /* ==========================================================================
    EXTRA SMALL SCREENS
    ========================================================================== */
 
 @media screen and (max-width: 576px) {
-
-
   /* Navbar Section */
 
   .logo {
@@ -1291,10 +1368,8 @@ body {
   }
 
   .burger {
-    
     width: 15px;
     height: 15px;
-    
   }
 
   .burger input {
@@ -1348,14 +1423,10 @@ body {
     left: 4px;
   }
 
-
-
-
-
   /* BAnner Section */
 
   .fluid-container {
-    padding:  0 10px;
+    padding: 0 10px;
   }
 
   .banner-section {
@@ -1364,6 +1435,25 @@ body {
 
   .hero-content h1 {
     font-size: 1.2rem;
+  }
+
+  /* About us Section */
+
+  .stats {
+    gap: 10px;
+  }
+
+  .stat-box img {
+    width: 40%;
+  }
+
+  .stat-box h3 {
+    color: #543ad7;
+    font-size: 14px;
+  }
+
+  .stat-box p {
+    font-size: 14px;
   }
 
   /* Property Listing Section */
@@ -1396,14 +1486,6 @@ body {
 
   .first-row,
   .second-row {
-    width: 100%;
-  }
-}
-
-@media screen and (max-width: 425px) {
-  /* apartment-types section */
-
-  .col2 {
     width: 100%;
   }
 }
