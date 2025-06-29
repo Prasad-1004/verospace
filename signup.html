@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Verospace</title>
+    <link rel="stylesheet" href="./css/signup.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="company-logo">
+        <a href="./index.html" class="logo">
+          <img src="./assets/homepage/Group 2.png" alt="Company Logo" />
+        </a>
+      </div>
+
+      <div class="register-modal">
+        <div class="register-header">
+          <h2>Create an Account</h2>
+          <p>Fill up details below to get register</p>
+        </div>
+
+        <form>
+          <div class="form-container">
+            <div class="form-column">
+              <div class="input-group">
+                <label for="first-name">First name</label>
+                <input
+                  type="text"
+                  id="first-name"
+                  placeholder="Enter your first name"
+                />
+              </div>
+
+              <div class="input-group">
+                <label for="last-name">Last name</label>
+                <input
+                  type="text"
+                  id="last-name"
+                  placeholder="Enter your last name"
+                />
+              </div>
+
+              <div class="input-group">
+                <label for="phone">Phone</label>
+                <input
+                  type="tel"
+                  id="phone"
+                  placeholder="Enter your phone number"
+                />
+              </div>
+            </div>
+
+            <div class="form-column">
+              <div class="input-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" placeholder="Enter your email" />
+              </div>
+
+              <div class="input-group">
+                <label for="password">Password</label>
+                <input
+                  type="password"
+                  id="password"
+                  placeholder="Create a password"
+                />
+              </div>
+
+              <div class="input-group">
+                <label for="confirm-password">Confirm password</label>
+                <input
+                  type="password"
+                  id="confirm-password"
+                  placeholder="Confirm your password"
+                />
+              </div>
+            </div>
+          </div>
+
+          <div class="terms-condition">
+            <input type="checkbox" id="terms" />
+            <label for="terms"
+              >By create an account accept our
+              <a href="#">Term & Condition</a></label
+            >
+          </div>
+
+          <button type="submit" class="register-button">REGISTER</button>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

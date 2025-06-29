@@ -253,13 +253,19 @@ input:focus,
 select:focus,
 textarea:focus {
   outline: none;
-  border-color: #6366f1;
+  border-color: #543ad7;
   box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
 }
 
 select {
   cursor: pointer;
 }
+
+/* select option {
+  background-color: red;
+  color: white;
+} */
+
 
 textarea {
   resize: vertical;
@@ -281,11 +287,9 @@ textarea {
   min-width: 150px;
 }
 
-.checkbox-item input[type="checkbox"] {
-  width: auto;
-  margin: 0;
-  accent-color: #6366f1;
-}
+
+
+
 
 .checkbox-item label {
   margin: 0;
@@ -304,18 +308,18 @@ textarea {
 }
 
 .file-upload:hover {
-  border-color: #6366f1;
+  border-color: #543ad7;
   background-color: #f0f0ff;
 }
 
 .file-upload.dragover {
-  border-color: #6366f1;
+  border-color: #543ad7;
   background-color: #e0e7ff;
 }
 
 .file-upload-icon {
   font-size: 24px;
-  color: #6366f1;
+  color: #543ad7;
   margin-bottom: 10px;
 }
 
@@ -715,6 +719,7 @@ textarea {
 
 .our-properties {
   width: 404px;
+  margin: auto;
 }
 
 .properties-title {
@@ -1092,6 +1097,10 @@ textarea {
   .first-row img,
   .second-row img {
     width: calc(25% - 8px);
+  }
+
+  .footer-links {
+    text-align: end;
   }
 
   /* Second Footer*/

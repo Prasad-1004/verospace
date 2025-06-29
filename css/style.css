@@ -13,6 +13,11 @@
   font-family: "Lato", sans-serif;
 }
 
+html,
+body {
+  overflow-x: hidden;
+}
+
 li {
   list-style: none;
 }
@@ -21,13 +26,13 @@ a {
   text-decoration: none;
 }
 
-html,
-body {
-  overflow-x: hidden;
-}
-
 [data-aos] {
   will-change: transform, opacity;
+}
+
+/* Prevent body scroll when menu is open */
+body.menu-open {
+  overflow: hidden;
 }
 
 /* ==========================================================================
@@ -93,7 +98,7 @@ body {
   left: 0;
   right: 0;
   z-index: 10;
-  background-color: rgb(255, 255, 255);
+  background-color: #fff;
   max-width: 1400px;
   margin: 0 auto;
   padding: 10px 0;
@@ -109,18 +114,7 @@ body {
   position: relative;
 }
 
-.nav-left {
-  display: flex;
-  align-items: center;
-  gap: 41px;
-}
-
-.nav-right {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-}
-
+/* Logo */
 .logo {
   display: flex;
   justify-content: center;
@@ -133,9 +127,12 @@ body {
   width: auto;
 }
 
+/* Navigation Links */
 .nav-link {
   color: black;
   font-weight: 500;
+  text-decoration: none;
+  font-size: 18px;
 }
 
 .login-btn {
@@ -145,17 +142,175 @@ body {
   color: white;
   border-radius: 20px;
   font-family: "Montserrat", sans-serif;
+  text-decoration: none;
 }
 
-.menu-toggle {
+/* Desktop Navigation */
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 41px;
+  list-style: none;
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  list-style: none;
+}
+
+/* Mobile Menu */
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+  clip-path: circle(0% at 100% 0%);
+  transition: clip-path 0.8s cubic-bezier(0.77, 0.2, 0.05, 1);
+}
+
+.mobile-menu.active {
+  clip-path: circle(150% at 100% 0%);
+}
+
+.mobile-menu.closing {
+  clip-path: circle(0% at 100% 0%);
+  transition: clip-path 0.8s cubic-bezier(0.77, 0.2, 0.05, 1);
+}
+
+.mobile-nav-list {
+  list-style: none;
+  text-align: center;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.mobile-menu.active .mobile-nav-list {
+  opacity: 1;
+  transition-delay: 0.4s;
+}
+
+.mobile-menu.closing .mobile-nav-list {
+  opacity: 0;
+  transition-delay: 0s;
+}
+
+.mobile-nav-item {
+  margin: 50px 0;
+  transform: translateX(30px);
+  opacity: 0;
+}
+
+.mobile-menu.active .mobile-nav-item {
+  animation: slideIn 0.5s forwards;
+}
+
+.mobile-nav-item:nth-child(1) {
+  animation-delay: 0.5s;
+}
+.mobile-nav-item:nth-child(2) {
+  animation-delay: 0.6s;
+}
+.mobile-nav-item:nth-child(3) {
+  animation-delay: 0.7s;
+}
+.mobile-nav-item:nth-child(4) {
+  animation-delay: 0.8s;
+}
+.mobile-nav-item:nth-child(5) {
+  animation-delay: 0.9s;
+}
+
+.mobile-nav-item .nav-link {
+  color: #543ad7;
+  font-size: 28px;
+  font-weight: 600;
+}
+
+.mobile-nav-item .login-btn {
+  font-size: 28px;
+  padding: 12px 30px;
+}
+
+@keyframes slideIn {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Hamburger Menu */
+.burger {
   display: none;
+  position: relative;
+  width: 25px;
+  height: 20px;
+  background: transparent;
   cursor: pointer;
-  font-size: 24px;
-  color: #000;
+  z-index: 1000;
 }
 
 .burger input {
   display: none;
+}
+
+.burger span {
+  display: block;
+  position: absolute;
+  height: 4px;
+  width: 100%;
+  background: black;
+  border-radius: 9px;
+  opacity: 1;
+  left: 0;
+  transform: rotate(0deg);
+  transition: 0.25s ease-in-out;
+}
+
+.burger span:nth-of-type(1) {
+  top: 0px;
+  transform-origin: left center;
+}
+
+.burger span:nth-of-type(2) {
+  top: 50%;
+  transform: translateY(-50%);
+  transform-origin: left center;
+}
+
+.burger span:nth-of-type(3) {
+  top: 100%;
+  transform-origin: left center;
+  transform: translateY(-100%);
+}
+
+.burger input:checked ~ span:nth-of-type(1) {
+  transform: rotate(45deg);
+  top: 0px;
+  left: 5px;
+}
+
+.burger input:checked ~ span:nth-of-type(2) {
+  width: 0%;
+  opacity: 0;
+}
+
+.burger input:checked ~ span:nth-of-type(3) {
+  transform: rotate(-45deg);
+  top: 18px;
+  left: 5px;
+}
+
+.burger input:checked ~ span {
+  background: #543ad7;
 }
 
 /* ==========================================================================
@@ -173,9 +328,7 @@ body {
 
 .container-wrapper {
   min-height: inherit;
-  /* min-height: 662px; */
   background: url("../assets/homepage/banner.png") no-repeat center/cover;
-
   color: white;
   display: flex;
   align-items: center;
@@ -242,15 +395,10 @@ body {
   margin-bottom: 15px;
 }
 
-/* .card:hover {
-  transform: translateY(-8px);
-} */
-
 .icon-box {
   width: 60px;
   height: 60px;
   margin: 0 auto 15px;
-
   border-radius: 12px;
   display: flex;
   align-items: center;
@@ -340,7 +488,6 @@ body {
   display: flex;
   justify-content: space-between;
   width: 100%;
-  /* flex-wrap: wrap; */
   gap: 30px;
 }
 
@@ -374,10 +521,6 @@ body {
 /* ==========================================================================
    PROPERTY LISTING SECTION
    ========================================================================== */
-/* .property-listing {
-  padding-bottom: 60px;
-} */
-
 .new-list {
   display: flex;
   justify-content: space-between;
@@ -539,7 +682,7 @@ body {
   max-width: 1200px;
   margin: auto;
   background-color: #f9f9f9;
-  padding: 0 15px; /* Add padding for mobile */
+  padding: 0 15px;
 }
 
 .testimonial-section .testimonial-header p {
@@ -580,7 +723,7 @@ body {
   text-align: left;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   position: relative;
-  overflow: visible; /* Allow white box to extend outside */
+  overflow: visible; 
 }
 
 /* Testimonial Card Background Classes */
@@ -605,11 +748,9 @@ body {
   line-height: 20px;
   max-width: 340px;
   min-height: 260px;
-  padding: 23px 25px; /* Adjusted padding */
-
-  /* Responsive right positioning */
-  right: -80px; /* Reduced from -110px for better mobile fit */
-  width: 300px; /* Fixed width for consistency */
+  padding: 23px 25px; 
+  right: -80px; 
+  width: 300px;
 }
 
 .white-box p {
@@ -677,132 +818,14 @@ body {
   font-weight: bold;
 }
 
-/* Tablet adjustments */
-@media (max-width: 1024px) {
-  .white-box {
-    right: -60px;
-    width: 280px;
-    padding: 20px 22px;
-  }
-}
-
-/* Mobile specific adjustments */
-@media (max-width: 768px) {
-  .testimonial-section .testimonial-header h2 {
-    font-size: 24px;
-    margin-bottom: 30px;
-  }
-
-  .testimonial-section .testimonial-card {
-    min-height: 350px;
-    max-width: 100%;
-  }
-
-  .white-box {
-    right: -40px; /* Reduced right offset for mobile */
-    width: 260px;
-    padding: 18px 20px;
-    min-height: 240px;
-    top: 50px;
-  }
-
-  .testimonial-section .testimonial-profile {
-    margin-top: 35px;
-  }
-
-  .testimonial-section .swiper-button-next,
-  .testimonial-section .swiper-button-prev {
-    width: 35px;
-    height: 35px;
-  }
-
-  .testimonial-section .swiper-button-next::after,
-  .testimonial-section .swiper-button-prev::after {
-    font-size: 16px;
-  }
-}
-
-/* Extra small screens */
-@media (max-width: 480px) {
-  .testimonial-section {
-    padding: 0 10px;
-  }
-
-  .testimonial-section .testimonial-header h2 {
-    font-size: 22px;
-  }
-
-  .testimonial-section .testimonial-card {
-    min-height: 320px;
-  }
-
-  .white-box {
-    right: -20px; /* Further reduced for very small screens */
-    width: 240px;
-    padding: 16px 18px;
-    min-height: 220px;
-    top: 45px;
-  }
-
-  .white-box p {
-    font-size: 13px;
-    line-height: 22px;
-    margin-bottom: 15px;
-  }
-
-  .testimonial-section .testimonial-profile {
-    margin-top: 30px;
-    gap: 10px;
-  }
-
-  .testimonial-section .testimonial-profile img {
-    width: 40px;
-    height: 40px;
-  }
-
-  .testimonial-section .testimonial-profile h4 {
-    font-size: 15px;
-  }
-
-  .testimonial-section .stars {
-    font-size: 13px;
-  }
-}
-
-/* Very small screens */
-@media (max-width: 360px) {
-  .white-box {
-    right: -10px;
-    width: 220px;
-    padding: 14px 16px;
-    min-height: 200px;
-  }
-
-  .white-box p {
-    font-size: 12px;
-    line-height: 20px;
-  }
-
-  .testimonial-section .testimonial-profile h4 {
-    font-size: 14px;
-  }
-}
 /* ==========================================================================
    TRUSTED COMPANIES SECTION
    ========================================================================== */
-
-/* ===== Companies Section ===== */
 .trusted-companies {
   padding: 60px 0;
   background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
   text-align: center;
   overflow: hidden;
-}
-
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
 }
 
 .trusted-heading {
@@ -838,11 +861,6 @@ body {
   flex-shrink: 0;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   border: 1px solid rgba(0, 0, 0, 0.05);
-}
-
-.trusted-companies-swiper .swiper-slide:hover {
-  /* transform: translateY(-5px);
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15); */
 }
 
 .trusted-companies .logo-placeholder {
@@ -885,36 +903,6 @@ body {
   font-weight: 500;
   position: absolute;
   z-index: -1;
-}
-
-@media (max-width: 768px) {
-  .trusted-heading {
-    font-size: 24px;
-    margin-bottom: 30px;
-  }
-
-  .trusted-companies-swiper .swiper-slide {
-    width: 160px !important;
-    height: 80px;
-    padding: 15px;
-  }
-
-  .trusted-companies .logo-placeholder img {
-    max-width: 100px;
-    max-height: 50px;
-  }
-}
-
-@media (max-width: 480px) {
-  .trusted-companies {
-    padding: 40px 0;
-  }
-
-  .trusted-companies-swiper .swiper-slide {
-    width: 140px !important;
-    height: 70px;
-    padding: 12px;
-  }
 }
 
 /* ==========================================================================
@@ -1075,7 +1063,8 @@ body {
   margin-bottom: 10px;
 }
 
-.first-row a , .second-row a {
+.first-row a,
+.second-row a {
   display: contents;
 }
 
@@ -1120,9 +1109,172 @@ body {
 /* ==========================================================================
    RESPONSIVE DESIGN - TABLETS & MEDIUM SCREENS
    ========================================================================== */
+
+
+
+
+
+
+
+
+   /* ==========================================================================
+   RESPONSIVE CSS - ORGANIZED BY SECTIONS
+   ========================================================================== */
+
+/* ==========================================================================
+   TESTIMONIAL SECTION - RESPONSIVE
+   ========================================================================== */
+
+/* Tablet adjustments */
+@media (max-width: 1024px) {
+  .white-box {
+    right: -60px;
+    width: 280px;
+    padding: 20px 22px;
+  }
+}
+
+/* Mobile specific adjustments */
+@media (max-width: 768px) {
+  .testimonial-section .testimonial-header h2 {
+    font-size: 24px;
+    margin-bottom: 30px;
+  }
+
+  .testimonial-section .testimonial-card {
+    min-height: 350px;
+    max-width: 100%;
+  }
+
+  .white-box {
+    right: -40px; /* Reduced right offset for mobile */
+    width: 260px;
+    padding: 18px 20px;
+    min-height: 240px;
+    top: 50px;
+  }
+
+  .testimonial-section .testimonial-profile {
+    margin-top: 35px;
+  }
+
+  .testimonial-section .swiper-button-next,
+  .testimonial-section .swiper-button-prev {
+    width: 35px;
+    height: 35px;
+  }
+
+  .testimonial-section .swiper-button-next::after,
+  .testimonial-section .swiper-button-prev::after {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .testimonial-section {
+    padding: 0 10px;
+  }
+
+  .testimonial-section .testimonial-header h2 {
+    font-size: 22px;
+  }
+
+  .testimonial-section .testimonial-card {
+    min-height: 320px;
+  }
+
+  .white-box {
+    right: -20px; 
+    width: 240px;
+    padding: 16px 18px;
+    min-height: 220px;
+    top: 45px;
+  }
+
+  .white-box p {
+    font-size: 13px;
+    line-height: 22px;
+    margin-bottom: 15px;
+  }
+
+  .testimonial-section .testimonial-profile {
+    margin-top: 30px;
+    gap: 10px;
+  }
+
+  .testimonial-section .testimonial-profile img {
+    width: 40px;
+    height: 40px;
+  }
+
+  .testimonial-section .testimonial-profile h4 {
+    font-size: 15px;
+  }
+
+  .testimonial-section .stars {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 360px) {
+  .white-box {
+    right: -10px;
+    width: 220px;
+    padding: 14px 16px;
+    min-height: 200px;
+  }
+
+  .white-box p {
+    font-size: 12px;
+    line-height: 20px;
+  }
+
+  .testimonial-section .testimonial-profile h4 {
+    font-size: 14px;
+  }
+}
+
+/* ==========================================================================
+   TRUSTED COMPANIES SECTION - RESPONSIVE
+   ========================================================================== */
+
+@media (max-width: 768px) {
+  .trusted-heading {
+    font-size: 24px;
+    margin-bottom: 30px;
+  }
+
+  .trusted-companies-swiper .swiper-slide {
+    width: 160px !important;
+    height: 80px;
+    padding: 15px;
+  }
+
+  .trusted-companies .logo-placeholder img {
+    max-width: 100px;
+    max-height: 50px;
+  }
+}
+
+@media (max-width: 480px) {
+  .trusted-companies {
+    padding: 40px 0;
+  }
+
+  .trusted-companies-swiper .swiper-slide {
+    width: 140px !important;
+    height: 70px;
+    padding: 12px;
+  }
+}
+
+/* ==========================================================================
+   NEWSLETTER SECTION - RESPONSIVE
+   ========================================================================== */
+
 @media (max-width: 1060px) {
   .newsletter-button {
-    margin-top: 20px;
+    margin-top: 20px;   
     margin-left: 0px;
   }
 
@@ -1130,6 +1282,10 @@ body {
     text-align: center;
   }
 }
+
+/* ==========================================================================
+   GENERAL TABLET RESPONSIVE (1023px and below)
+   ========================================================================== */
 
 @media screen and (max-width: 1023px) {
   /* Apartment Types Section */
@@ -1154,22 +1310,18 @@ body {
 }
 
 /* ==========================================================================
-   RESPONSIVE DESIGN - MOBILE & SMALL SCREENS
+   MOBILE RESPONSIVE (768px and below)
    ========================================================================== */
+
 @media (max-width: 768px) {
-  /* Navbar */
+  /* Navigation */
   .nav-left,
   .nav-right {
-    flex-direction: column;
-    width: 100%;
     display: none;
-    margin-top: 20px;
-    margin-bottom: 20px;
   }
 
-  .nav-left.active,
-  .nav-right.active {
-    display: flex;
+  .burger {
+    display: block;
   }
 
   .logo {
@@ -1181,188 +1333,37 @@ body {
 
   .logo-icon {
     height: 30px;
+    width: auto;
+  }
+
+  .logo-link img {
+    width: 15%;
+    object-fit: contain;
   }
 
   .navbar {
     top: 40px;
   }
 
-  /* Hamburger Menu */
-  .burger {
-    position: relative;
-    width: 25px;
-    height: 20px;
-    background: transparent;
-    cursor: pointer;
-    display: block;
+  /* Prevent body scroll when menu is open */
+  body.menu-open {
+    overflow: hidden;
   }
 
-  .burger input {
-    display: none;
-  }
-
-  .burger span {
-    display: block;
-    position: absolute;
-    height: 4px;
-    width: 100%;
-    background: black;
-    border-radius: 9px;
-    opacity: 1;
-    left: 0;
-    transform: rotate(0deg);
-    transition: 0.25s ease-in-out;
-  }
-
-  .burger span:nth-of-type(1) {
-    top: 0px;
-    transform-origin: left center;
-  }
-
-  .burger span:nth-of-type(2) {
-    top: 50%;
-    transform: translateY(-50%);
-    transform-origin: left center;
-  }
-
-  .burger span:nth-of-type(3) {
-    top: 100%;
-    transform-origin: left center;
-    transform: translateY(-100%);
-  }
-
-  .burger input:checked ~ span:nth-of-type(1) {
-    transform: rotate(45deg);
-    top: 0px;
-    left: 5px;
-  }
-
-  .burger input:checked ~ span:nth-of-type(2) {
-    width: 0%;
-    opacity: 0;
-  }
-
-  .burger input:checked ~ span:nth-of-type(3) {
-    transform: rotate(-45deg);
-    top: 28px;
-    left: 5px;
-  }
-
-  /* New */
-
-  /* Banner Section */
-  .hero-content h1 {
-    font-size: 2rem;
-  }
-
-  /* Apartment Types Section */
-
-  /* Property Listing Section */
-  .header {
-    flex-direction: column;
-    gap: 20px;
-    text-align: center;
-  }
-
-  .header h2 {
-    font-size: 24px;
-  }
-
-  .property-title {
-    font-size: 16px;
-  }
-
-  .property-image {
-    height: 180px;
-  }
-
-  .heading {
-    text-align: center;
-  }
-
-  .new-list {
-    flex-direction: column;
-  }
-
-  .status-badge {
-    padding-left: 0;
-  }
-
-  .all-listing-btn {
-    margin-top: 20px;
-    width: 158px;
-    display: flex;
-    justify-content: center;
-    margin: 20px auto;
-  }
-
-  .submit-button {
-    margin-bottom: 20px;
-  }
-
-  /* Companies Section */
-  .trusted-heading {
-    font-size: 20px;
-    margin-bottom: 20px;
-  }
-
-  .trusted-companies .swiper-slide {
-    width: 160px !important;
-    padding: 12px;
-  }
-
-  /* Newsletter Section */
-  .col55,
-  .col66 {
-    width: 100%;
-    justify-content: center;
-  }
-
-  .news-title {
-    margin: auto;
-    text-align: center;
-  }
-
-  /* Footer Section */
-  .footer-brand {
-    width: calc(50% - 15px);
-    text-align: start;
-  }
-
-  .footer-links {
-    width: calc(50% - 15px);
-    text-align: end;
-  }
-
-  .our-properties {
-    width: 100%;
-    text-align: center;
-  }
-
-  .first-row img,
-  .second-row img {
-    width: calc(25% - 8px);
-  }
-
-  /* Second Footer */
-  .footer-content {
-    flex-direction: column;
-    row-gap: 10px;
-    font-size: 13px;
+  /* Mobile Menu Visibility */
+  @media (min-width: 769px) {
+    .mobile-menu {
+      display: none;
+    }
   }
 }
 
 /* ==========================================================================
-   TESTIMONIAL RESPONSIVE STYLES
-   ========================================================================== */
-
-/* ==========================================================================
-   EXTRA SMALL SCREENS
+   SMALL MOBILE RESPONSIVE (576px and below)
    ========================================================================== */
 
 @media screen and (max-width: 576px) {
   /* Navbar Section */
-
   .logo {
     margin-bottom: 0px;
   }
@@ -1427,8 +1428,7 @@ body {
     left: 4px;
   }
 
-  /* BAnner Section */
-
+  /* Banner Section */
   .container-wrapper {
     min-height: 576px;
   }
@@ -1450,8 +1450,7 @@ body {
     font-size: 1.2rem;
   }
 
-  /* About us Section */
-
+  /* About Us Section */
   .apartment-types {
     padding: 0px 0px 40px 0;
     text-align: center;
@@ -1483,14 +1482,57 @@ body {
     height: 160px;
   }
 
-  /* Testimonial Section */
-
-  .testimonial-section .testimonial-card {
-    max-width: 83%;
+  .header {
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
   }
 
-  .white-box {
-    right: -20px;
+  .header h2 {
+    font-size: 24px;
+  }
+
+  .property-title {
+    font-size: 16px;
+  }
+
+  .property-image {
+    height: 180px;
+  }
+
+  .heading {
+    text-align: center;
+  }
+
+  .new-list {
+    flex-direction: column;
+  }
+
+  .status-badge {
+    padding-left: 0;
+  }
+
+  .all-listing-btn {
+    margin-top: 20px;
+    width: 158px;
+    display: flex;
+    justify-content: center;
+    margin: 20px auto;
+  }
+
+  .submit-button {
+    margin-bottom: 20px;
+  }
+
+  /* Companies Section */
+  .trusted-heading {
+    font-size: 20px;
+    margin-bottom: 20px;
+  }
+
+  .trusted-companies .swiper-slide {
+    width: 160px !important;
+    padding: 12px;
   }
 
   /* Newsletter Section */
@@ -1502,18 +1544,60 @@ body {
     font-size: 25px;
   }
 
-  .newsletter-title {
-    font-size: 25px;
+  .col55,
+  .col66 {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .news-title {
+    margin: auto;
+    text-align: center;
   }
 
   .col66 {
     display: block;
   }
 
-  /* Footer section */
+  /* Footer Section */
+  .footer-brand {
+    width: calc(50% - 15px);
+    text-align: start;
+  }
+
+  .footer-links {
+    width: calc(50% - 15px);
+    text-align: end;
+  }
+
+  .our-properties {
+    width: 100%;
+    text-align: center;
+  }
+
+  .first-row img,
+  .second-row img {
+    width: calc(25% - 8px);
+  }
 
   .first-row,
   .second-row {
     width: 100%;
+  }
+
+  /* Second Footer */
+  .footer-content {
+    flex-direction: column;
+    row-gap: 10px;
+    font-size: 13px;
+  }
+
+  /* Testimonial Section Additional */
+  .testimonial-section .testimonial-card {
+    max-width: 83%;
+  }
+
+  .white-box {
+    right: -20px;
   }
 }

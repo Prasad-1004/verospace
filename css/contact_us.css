@@ -395,6 +395,7 @@ textarea {
   align-items: center;
   transition: all 0.3s ease;
   line-height: 1.4;
+  border-radius: 12px;
 }
 
 .faq-question:hover {
@@ -492,6 +493,7 @@ textarea {
 
 .newsletter-section .row {
   justify-content: space-between;
+  align-items: center;
 }
 
 .col55,
@@ -505,7 +507,7 @@ textarea {
 
 .col66 {
   width: 60%;
-  display: flex;
+  /* display: flex; */
   align-items: center;
   justify-content: end;
 }
@@ -524,16 +526,11 @@ textarea {
   font-family: "Montserrat", sans-serif;
 }
 
-.newsletter-form {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  align-items: center;
-}
+
 
 .newsletter-input {
   max-width: 404px;
-
+  width: 100%;
   padding: 0.8rem 1rem;
   font-size: 1rem;
   border: 1px solid #ddd;
@@ -556,11 +553,13 @@ textarea {
   cursor: pointer;
   transition: background-color 0.3s;
   text-transform: uppercase;
+  margin-left: 50px;
 }
 
 .newsletter-button:hover {
   background-color: #0056b3;
 }
+
 
 /* Footer Section */
 
@@ -724,6 +723,20 @@ textarea {
 
 /* Responsive Section */
 
+@media (max-width: 1060px) {
+  .newsletter-button {
+    margin-top: 20px;
+  }
+
+  .newsletter-button {
+    margin-left: 0px;
+  }
+
+  .newsletter-form {
+    text-align: center;
+  }
+}
+
 @media (max-width: 1024px) {
   .col7 {
     width: 100%;
@@ -742,6 +755,10 @@ textarea {
     gap: 10px;
     flex-wrap: wrap;
     row-gap: 20px;
+  }
+
+  .col55 , .col66 {
+    width: 100%;
   }
 }
 
@@ -896,6 +913,7 @@ textarea {
 
   .footer-links {
     width: calc(50% - 15px);
+    text-align: end;
   }
 
   .our-properties {
