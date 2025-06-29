@@ -6,59 +6,84 @@
     <title>VeroSpace</title>
     <link rel="stylesheet" href="./css/style.css" />
     <link
+      href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css"
+      rel="stylesheet"
+    />
+    <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/8.4.7/swiper-bundle.min.css"
     />
   </head>
   <body>
     <!-- Header Section -->
-    <header class="navbar">
-    <div class="container">
-      <nav class="nav-container">
-        <!-- Mobile Menu Toggle -->
-        <label class="burger" for="burger">
-          <input type="checkbox" id="burger" />
-          <span></span>
-          <span></span>
-          <span></span>
-        </label>
+    <!-- Header Section with AOS -->
+    <header
+      class="navbar"
+      data-aos="fade-down"
+      data-aos-duration="1000"
+      data-aos-easing="ease-in-out"
+    >
+      <div class="container">
+        <nav class="nav-container">
+          <!-- Mobile Menu Toggle -->
+          <label class="burger" for="burger">
+            <input type="checkbox" id="burger" />
+            <span></span>
+            <span></span>
+            <span></span>
+          </label>
 
-        <!-- Navigation Links - Left -->
-        <ul class="nav-left">
-          <li><a href="./index.html" class="nav-link active">Home</a></li>
-          <li><a href="./about_us.html" class="nav-link">About Us</a></li>
-          <li><a href="./submit_property.html" class="nav-link">Properties</a></li>
+          <!-- Navigation Links - Left -->
+          <ul class="nav-left">
+            <li><a href="./index.html" class="nav-link active">Home</a></li>
+            <li><a href="./about_us.html" class="nav-link">About Us</a></li>
+            <li><a href="./properties.html" class="nav-link">Properties</a></li>
+          </ul>
+
+          <!-- Logo -->
+          <div class="logo">
+            <a href="/" class="logo-link">
+              <img src="./assets/homepage/Group 2.png" alt="Logo" />
+            </a>
+          </div>
+
+          <!-- Navigation Links - Right -->
+          <ul class="nav-right">
+            <li><a href="./contact_us.html" class="nav-link">Contact Us</a></li>
+            <li><a href="./login.html" class="login-btn">Login</a></li>
+          </ul>
+        </nav>
+      </div>
+
+      <!-- Mobile Menu -->
+      <div class="mobile-menu" id="mobileMenu">
+        <ul class="mobile-nav-list">
+          <li class="mobile-nav-item">
+            <a href="./index.html" class="nav-link">Home</a>
+          </li>
+          <li class="mobile-nav-item">
+            <a href="./about_us.html" class="nav-link">About Us</a>
+          </li>
+          <li class="mobile-nav-item">
+            <a href="./submit_property.html" class="nav-link">Properties</a>
+          </li>
+          <li class="mobile-nav-item">
+            <a href="./contact_us.html" class="nav-link">Contact Us</a>
+          </li>
+          <li class="mobile-nav-item">
+            <a href="./login.html" class="login-btn">Login</a>
+          </li>
         </ul>
-
-        <!-- Logo -->
-        <div class="logo">
-          <a href="/" class="logo-link">
-            <img src="./assets/homepage/Group 2.png" alt="">
-          </a>
-        </div>
-
-        <!-- Navigation Links - Right -->
-        <ul class="nav-right">
-          <li><a href="./contact_us.html" class="nav-link">Contact Us</a></li>
-          <li><a href="./login.html" class="login-btn">Login</a></li>
-        </ul>
-      </nav>
-    </div>
-
-    <!-- Mobile Menu -->
-    <div class="mobile-menu" id="mobileMenu">
-      <ul class="mobile-nav-list">
-        <li class="mobile-nav-item"><a href="./index.html" class="nav-link">Home</a></li>
-        <li class="mobile-nav-item"><a href="./about_us.html" class="nav-link">About Us</a></li>
-        <li class="mobile-nav-item"><a href="./submit_property.html" class="nav-link">Properties</a></li>
-        <li class="mobile-nav-item"><a href="./contact_us.html" class="nav-link">Contact Us</a></li>
-        <li class="mobile-nav-item"><a href="./login.html" class="login-btn">Login</a></li>
-      </ul>
-    </div>
-  </header>
+      </div>
+    </header>
 
     <!-- Hero Banner Section -->
-    <section class="banner-section">
+    <section
+      class="banner-section"
+      data-aos="fade-up"
+      data-aos-duration="1000"
+      data-aos-easing="ease-in-out"
+    >
       <div class="fluid-container">
         <div class="container-wrapper">
           <div class="hero-content">
@@ -75,11 +100,16 @@
     </section>
 
     <!-- Apartment Types Section -->
-    <section class="apartment-types">
+    <section
+      class="apartment-types"
+      data-aos="fade-up"
+      data-aos-duration="1000"
+      data-aos-easing="ease-in-out"
+    >
       <div class="container">
         <h2>Explore Apartment Types</h2>
         <div class="row">
-          <div class="col2">
+          <div class="col2" data-aos="fade-up" data-aos-delay="100">
             <a href="/" class="card">
               <div class="icon-box">
                 <img src="./assets/homepage/Group 13.png" alt="Commercial" />
@@ -89,7 +119,7 @@
             </a>
           </div>
 
-          <div class="col2">
+          <div class="col2" data-aos="fade-up" data-aos-delay="200">
             <a href="/" class="card">
               <div class="icon-box">
                 <img src="./assets/homepage/Group 17.png" alt="Residential" />
@@ -99,7 +129,7 @@
             </a>
           </div>
 
-          <div class="col2">
+          <div class="col2" data-aos="fade-up" data-aos-delay="300">
             <a href="/" class="card">
               <div class="icon-box">
                 <img src="./assets/homepage/Group 15.png" alt="Villa" />
@@ -109,7 +139,7 @@
             </a>
           </div>
 
-          <div class="col2">
+          <div class="col2" data-aos="fade-up" data-aos-delay="400">
             <a href="/" class="card">
               <div class="icon-box">
                 <img src="./assets/homepage/Group 16.png" alt="Apartment" />
@@ -119,7 +149,7 @@
             </a>
           </div>
 
-          <div class="col2">
+          <div class="col2" data-aos="fade-up" data-aos-delay="500">
             <a href="/" class="card">
               <div class="icon-box">
                 <img src="./assets/homepage/Group 14.png" alt="Warehouse" />
@@ -133,17 +163,17 @@
     </section>
 
     <!-- About Us Section -->
-    <section class="about-section">
+    <section class="about-section" data-aos="fade-up" data-aos-duration="1000">
       <div class="container">
         <div class="row">
-          <div class="col6">
+          <div class="col6" data-aos="fade-right" data-aos-delay="200">
             <div class="image-area">
               <div class="background-img">
                 <img src="./assets/homepage/Group 223.png" alt="Luxury Pool" />
               </div>
             </div>
           </div>
-          <div class="col6 area">
+          <div class="col6 area" data-aos="fade-left" data-aos-delay="400">
             <div class="text-area">
               <p class="about-label">About Us</p>
               <h2>Welcome To VeroSpace, Your Trusted Real Estate Expert.</h2>
@@ -154,35 +184,8 @@
                 friend, every step of the way.
               </p>
 
-              <!-- <div class="stats">
-                <div class="stat-box">
-                  <img
-                    src="./assets/homepage/fa-solid_smile.png"
-                    alt="Happy Customers"
-                  />
-                  <h3>15K+</h3>
-                  <p>Trusted Customer</p>
-                </div>
-                <div class="stat-box">
-                  <img
-                    src="./assets/homepage/gridicons_house.png"
-                    alt="Houses Sold"
-                  />
-                  <h3>20K+</h3>
-                  <p>Houses Sold</p>
-                </div>
-                <div class="stat-box">
-                  <img
-                    src="./assets/homepage/fluent_agents-28-filled.png"
-                    alt="Properties Listed"
-                  />
-                  <h3>75K+</h3>
-                  <p>Property Listed</p>
-                </div>
-              </div> -->
-
               <div class="stats">
-                <div class="stat-box">
+                <div class="stat-box" data-aos="zoom-in" data-aos-delay="600">
                   <img
                     src="./assets/homepage/fa-solid_smile.png"
                     alt="Happy Customers"
@@ -190,7 +193,7 @@
                   <h3 data-target="15000">0</h3>
                   <p>Trusted Customer</p>
                 </div>
-                <div class="stat-box">
+                <div class="stat-box" data-aos="zoom-in" data-aos-delay="700">
                   <img
                     src="./assets/homepage/gridicons_house.png"
                     alt="Houses Sold"
@@ -198,7 +201,7 @@
                   <h3 data-target="20000">0</h3>
                   <p>Houses Sold</p>
                 </div>
-                <div class="stat-box">
+                <div class="stat-box" data-aos="zoom-in" data-aos-delay="800">
                   <img
                     src="./assets/homepage/fluent_agents-28-filled.png"
                     alt="Properties Listed"
@@ -214,9 +217,13 @@
     </section>
 
     <!-- Property Listing Section -->
-    <section class="property-listing">
+    <section
+      class="property-listing"
+      data-aos="fade-up"
+      data-aos-duration="1000"
+    >
       <div class="fluid-container">
-        <div class="heading">
+        <div class="heading" data-aos="fade-up" data-aos-delay="100">
           <div class="status-badge">Recently Added</div>
           <div class="new-list">
             <h2>Explore Our Newly Listed Properties</h2>
@@ -224,10 +231,14 @@
           </div>
         </div>
 
-        <div class="swiper propertySwiper">
+        <div
+          class="swiper propertySwiper"
+          data-aos="fade-up"
+          data-aos-delay="200"
+        >
           <div class="swiper-wrapper">
             <!-- Property Slides -->
-            <div class="swiper-slide">
+            <div class="swiper-slide" data-aos="zoom-in" data-aos-delay="300">
               <div class="swiper-card one">
                 <div class="card-content">
                   <div class="property-info">
@@ -256,7 +267,7 @@
               </div>
             </div>
 
-            <div class="swiper-slide">
+            <div class="swiper-slide" data-aos="zoom-in" data-aos-delay="400">
               <div class="swiper-card two">
                 <div class="card-content">
                   <div class="property-info">
@@ -279,7 +290,7 @@
               </div>
             </div>
 
-            <div class="swiper-slide">
+            <div class="swiper-slide" data-aos="zoom-in" data-aos-delay="500">
               <div class="swiper-card three">
                 <div class="card-content">
                   <div class="property-info">
@@ -302,7 +313,7 @@
               </div>
             </div>
 
-            <div class="swiper-slide">
+            <div class="swiper-slide" data-aos="zoom-in" data-aos-delay="600">
               <div class="swiper-card four">
                 <div class="card-content">
                   <div class="property-info">
@@ -331,10 +342,10 @@
     </section>
 
     <!-- Second About Section -->
-    <section class="about-section">
+    <section class="about-section" data-aos="fade-up" data-aos-duration="1000">
       <div class="container">
         <div class="row">
-          <div class="col6 area">
+          <div class="col6 area" data-aos="fade-right" data-aos-delay="200">
             <div class="text-area">
               <p class="about-label">About Us</p>
               <h2>Welcome To VeroSpace, Your Trusted Real Estate Expert.</h2>
@@ -350,7 +361,7 @@
             </div>
           </div>
 
-          <div class="col6">
+          <div class="col6" data-aos="fade-left" data-aos-delay="400">
             <div class="image-area">
               <div class="background-img">
                 <img
@@ -365,16 +376,28 @@
     </section>
 
     <!-- Testimonials Section -->
-    <section class="testimonial-section">
-      <div class="testimonial-header">
+    <section
+      class="testimonial-section"
+      data-aos="fade-up"
+      data-aos-duration="1000"
+    >
+      <div class="testimonial-header" data-aos="fade-up" data-aos-delay="100">
         <p>Testimonials</p>
         <h2>What Our Customer Says</h2>
       </div>
 
-      <div class="swiper testimonialSwiper">
+      <div
+        class="swiper testimonialSwiper"
+        data-aos="fade-up"
+        data-aos-delay="200"
+      >
         <div class="swiper-wrapper">
           <!-- Testimonial Slides -->
-          <div class="swiper-slide testimonial-slide">
+          <div
+            class="swiper-slide testimonial-slide"
+            data-aos="zoom-in"
+            data-aos-delay="300"
+          >
             <div class="testimonial-card card-third">
               <div class="white-box">
                 <p>
@@ -397,7 +420,11 @@
             </div>
           </div>
 
-          <div class="swiper-slide testimonial-slide">
+          <div
+            class="swiper-slide testimonial-slide"
+            data-aos="zoom-in"
+            data-aos-delay="400"
+          >
             <div class="testimonial-card card-first">
               <div class="white-box">
                 <p>
@@ -420,7 +447,11 @@
             </div>
           </div>
 
-          <div class="swiper-slide testimonial-slide">
+          <div
+            class="swiper-slide testimonial-slide"
+            data-aos="zoom-in"
+            data-aos-delay="500"
+          >
             <div class="testimonial-card card-second">
               <div class="white-box">
                 <p>
@@ -447,32 +478,42 @@
     </section>
 
     <!-- Trusted Companies Section -->
-    <section class="trusted-companies">
+    <section
+      class="trusted-companies"
+      data-aos="fade-up"
+      data-aos-duration="1000"
+    >
       <div class="container">
-        <h2 class="trusted-heading">Trusted by 200+ Companies</h2>
+        <h2 class="trusted-heading" data-aos="fade-up" data-aos-delay="100">
+          Trusted by 200+ Companies
+        </h2>
 
-        <div class="trusted-companies-swiper">
+        <div
+          class="trusted-companies-swiper"
+          data-aos="zoom-in"
+          data-aos-delay="200"
+        >
           <div class="swiper-wrapper">
             <!-- Company Logos -->
-            <div class="swiper-slide">
+            <div class="swiper-slide" data-aos="fade-up" data-aos-delay="300">
               <div class="logo-placeholder">
                 <img src="./assets/homepage/image 187.png" alt="Google Logo" />
               </div>
             </div>
 
-            <div class="swiper-slide">
+            <div class="swiper-slide" data-aos="fade-up" data-aos-delay="400">
               <div class="logo-placeholder">
                 <img src="./assets/homepage/image 189.png" alt="Meta Logo" />
               </div>
             </div>
 
-            <div class="swiper-slide">
+            <div class="swiper-slide" data-aos="fade-up" data-aos-delay="500">
               <div class="logo-placeholder">
                 <img src="./assets/homepage/image 190.png" alt="Amazon Logo" />
               </div>
             </div>
 
-            <div class="swiper-slide">
+            <div class="swiper-slide" data-aos="fade-up" data-aos-delay="600">
               <div class="logo-placeholder">
                 <img
                   src="./assets/homepage/image 191.png"
@@ -481,7 +522,7 @@
               </div>
             </div>
 
-            <div class="swiper-slide">
+            <div class="swiper-slide" data-aos="fade-up" data-aos-delay="700">
               <div class="logo-placeholder">
                 <img src="./assets/homepage/image 192.png" alt="Twitter Logo" />
               </div>
@@ -492,17 +533,21 @@
     </section>
 
     <!-- Newsletter Section -->
-    <section class="newsletter-section">
+    <section
+      class="newsletter-section"
+      data-aos="fade-up"
+      data-aos-duration="1000"
+    >
       <div class="container">
         <div class="row">
-          <div class="col55">
+          <div class="col55" data-aos="fade-right" data-aos-delay="100">
             <div class="news-title">
               <h2 class="newsletter-title">Newsletter To Get Updated</h2>
               <h2 class="newsletter-title">The Latest News</h2>
             </div>
           </div>
 
-          <div class="col66">
+          <div class="col66" data-aos="fade-left" data-aos-delay="200">
             <form class="newsletter-form">
               <input
                 type="email"
@@ -518,9 +563,9 @@
     </section>
 
     <!-- Footer Section -->
-    <footer class="main-footer">
+     <footer class="main-footer" data-aos="fade-up" data-aos-duration="1000">
       <div class="container">
-        <div class="footer-brand">
+        <div class="footer-brand" data-aos="fade-up" data-aos-delay="100">
           <h1>VeroSpace</h1>
           <p>
             Lorem ipsum dolor sit amet consectetur. Pharetra ornare aliquet nunc
@@ -528,22 +573,22 @@
           </p>
         </div>
 
-        <div class="divider"></div>
+        <div class="divider" data-aos="zoom-in" data-aos-delay="200"></div>
 
-        <div class="footer-links">
+        <div class="footer-links" data-aos="fade-right" data-aos-delay="300">
           <h2>Useful Links</h2>
           <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">About Us</a></li>
-            <li><a href="#">Properties</a></li>
-            <li><a href="#">Contact Us</a></li>
+            <li><a href="./index.html">Home</a></li>
+            <li><a href="./about_us.html">About Us</a></li>
+            <li><a href="./properties.html">Properties</a></li>
+            <li><a href="./contact_us.html">Contact Us</a></li>
           </ul>
         </div>
 
-        <div class="our-properties">
+        <div class="our-properties" data-aos="fade-left" data-aos-delay="400">
           <h2 class="properties-title">Our Properties</h2>
           <div class="properties-content">
-            <div class="first-row">
+            <div class="first-row" data-aos="fade-up" data-aos-delay="500">
               <a href="./properties.html"
                 ><img src="./assets/homepage/Rectangle 48.png" alt="Property"
               /></a>
@@ -557,7 +602,7 @@
                 ><img src="./assets/homepage/Rectangle 51.png" alt="Property"
               /></a>
             </div>
-            <div class="second-row">
+            <div class="second-row" data-aos="fade-up" data-aos-delay="600">
               <a href="./properties.html"
                 ><img src="./assets/homepage/Rectangle 52.png" alt="Property"
               /></a>
@@ -577,13 +622,13 @@
     </footer>
 
     <!-- Footer Bottom -->
-    <footer class="second-footer">
+    <footer class="second-footer" >
       <div class="container">
-        <div class="footer-content">
+        <div class="footer-content" >
           <div class="copyright">
             Copyright ©2024 VeroSpace, All rights reserved
           </div>
-          <div class="second-footer-links">
+          <div class="second-footer-links" >
             <div class="services"><a href="#">Terms of Service</a></div>
             <div class="policy"><a href="#">Privacy Policy</a></div>
           </div>
@@ -592,9 +637,12 @@
     </footer>
 
     <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
     <script src="./js/script.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/8.4.7/swiper-bundle.min.js"></script>
     <script>
+      AOS.init();
+
       // Initialize Property Swiper
       const swiper = new Swiper(".propertySwiper", {
         slidesPerView: 1,

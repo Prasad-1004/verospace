@@ -13,9 +13,22 @@
   font-family: "Lato", sans-serif;
 }
 
-html,
+html {
+  overflow-x: hidden;
+  /* overflow-y: scroll; */
+  width: 100%;
+}
+
 body {
   overflow-x: hidden;
+  width: 100%;
+}
+
+[data-aos] {
+  backface-visibility: hidden;
+  will-change: transform, opacity;
+  margin: 0 auto;
+  transform: translateZ(0); /* Forces hardware acceleration */
 }
 
 li {
@@ -723,7 +736,7 @@ body.menu-open {
   text-align: left;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   position: relative;
-  overflow: visible; 
+  overflow: visible;
 }
 
 /* Testimonial Card Background Classes */
@@ -748,8 +761,8 @@ body.menu-open {
   line-height: 20px;
   max-width: 340px;
   min-height: 260px;
-  padding: 23px 25px; 
-  right: -80px; 
+  padding: 23px 25px;
+  right: -80px;
   width: 300px;
 }
 
@@ -1082,6 +1095,9 @@ body.menu-open {
   object-fit: contain;
 }
 
+
+
+
 /* Second Footer */
 .second-footer {
   background-color: #f8f8f8;
@@ -1110,14 +1126,7 @@ body.menu-open {
    RESPONSIVE DESIGN - TABLETS & MEDIUM SCREENS
    ========================================================================== */
 
-
-
-
-
-
-
-
-   /* ==========================================================================
+/* ==========================================================================
    RESPONSIVE CSS - ORGANIZED BY SECTIONS
    ========================================================================== */
 
@@ -1184,7 +1193,7 @@ body.menu-open {
   }
 
   .white-box {
-    right: -20px; 
+    right: -20px;
     width: 240px;
     padding: 16px 18px;
     min-height: 220px;
@@ -1274,7 +1283,7 @@ body.menu-open {
 
 @media (max-width: 1060px) {
   .newsletter-button {
-    margin-top: 20px;   
+    margin-top: 20px;
     margin-left: 0px;
   }
 
