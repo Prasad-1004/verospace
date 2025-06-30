@@ -109,20 +109,24 @@ a {
 /* Banner Section */
 
 .banner-section {
-  height: 100vh;
+  min-height: 100vh;
   position: relative;
+  padding: 20px 0;
 }
 
 .banner-section .fluid-container {
-  background: url(../assets/Property_details/cover.png) no-repeat center/cover;
+  min-height: inherit;
+}
 
-  height: 100vh;
+.container-wrapper {
+  min-height: inherit;
+  background: url("../assets/aboutus_page/Hero\ section.png") no-repeat center/cover;
   color: white;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: 0 20px;
+  border-radius: 30px;
   position: relative;
   font-family: "Montserrat", sans-serif;
   text-transform: uppercase;
@@ -130,6 +134,7 @@ a {
 
 .hero-content {
   max-width: 1000px;
+  padding: 0 10px;
 }
 
 .hero-content h1 {
@@ -151,6 +156,7 @@ a {
   margin-top: 1rem;
   color: #f1f1f1;
 }
+
 
 /* Properties Section */
 

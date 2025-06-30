@@ -17,10 +17,10 @@
 
   <body>
     <!-- Header Section -->
-    <header class="navbar">
+    <!-- <header class="navbar">
       <div class="container">
         <nav class="nav-container">
-          <!-- From Uiverse.io by Cevorob -->
+          
           <label class="burger" for="burger">
             <input type="checkbox" id="burger" />
             <span></span>
@@ -46,7 +46,7 @@
             </a>
           </div>
 
-          <!-- Inside .nav-container -->
+          
           <div class="menu-toggle" id="menu-toggle">
             <i class="fas fa-bars"></i>
           </div>
@@ -57,12 +57,95 @@
           </ul>
         </nav>
       </div>
+    </header> -->
+
+    <header
+      class="navbar"
+      data-aos="fade-down"
+      data-aos-duration="1000"
+      data-aos-easing="ease-in-out"
+    >
+      <div class="container">
+        <nav class="nav-container">
+          <!-- Mobile Menu Toggle -->
+          <label class="burger" for="burger">
+            <input type="checkbox" id="burger" />
+            <span></span>
+            <span></span>
+            <span></span>
+          </label>
+
+          <!-- Navigation Links - Left -->
+          <ul class="nav-left">
+            <li><a href="./index.html" class="nav-link active">Home</a></li>
+            <li><a href="./about_us.html" class="nav-link">About Us</a></li>
+            <li><a href="./properties.html" class="nav-link">Properties</a></li>
+          </ul>
+
+          <!-- Logo -->
+          <div class="logo">
+            <a href="/" class="logo-link">
+              <img src="./assets/homepage/Group 2.png" alt="Logo" />
+            </a>
+          </div>
+
+          <!-- Navigation Links - Right -->
+          <ul class="nav-right">
+            <li><a href="./contact_us.html" class="nav-link">Contact Us</a></li>
+            <li><a href="./login.html" class="login-btn">Login</a></li>
+          </ul>
+        </nav>
+      </div>
+
+      <!-- Mobile Menu -->
+      <!-- <div class="mobile-menu" id="mobileMenu">
+        <ul class="mobile-nav-list">
+          <li class="mobile-nav-item">
+            <a href="./index.html" class="nav-link">Home</a>
+          </li>
+          <li class="mobile-nav-item">
+            <a href="./about_us.html" class="nav-link">About Us</a>
+          </li>
+          <li class="mobile-nav-item">
+            <a href="./properties.html" class="nav-link">Properties</a>
+          </li>
+          <li class="mobile-nav-item">
+            <a href="./contact_us.html" class="nav-link">Contact Us</a>
+          </li>
+          <li class="mobile-nav-item">
+            <a href="./login.html" class="login-btn">Login</a>
+          </li>
+        </ul>
+      </div> -->
     </header>
 
     <!-- Main Content -->
     <main>
       <!-- Banner Section -->
-      <section class="banner-section">
+
+      <section
+        class="banner-section"
+        data-aos="fade-up"
+        data-aos-duration="1000"
+        data-aos-easing="ease-in-out"
+      >
+        <div class="fluid-container">
+          <div class="container-wrapper">
+            <div class="hero-content">
+              <h1>
+                ABOUT US
+              </h1>
+              <div class="arrow">
+              <a href="./index.html" class="subtext">home</a>
+              <a class="subtext"><img src="./assets/aboutus_page/Vector (2).png" alt=""></a>
+              <a href="./about_us.html" class="subtext">about us</a>
+            </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- <section class="banner-section">
         <div class="fluid-container">
           <div class="hero-content">
             <h1>about us</h1>
@@ -73,7 +156,7 @@
             </div>
           </div>
         </div>
-      </section>
+      </section> -->
 
       <!-- Who we are Section -->
       <section class="who_we_are">
@@ -103,31 +186,31 @@
                 </div>
 
                 <div class="stats">
-                <div class="stat-box">
-                  <img
-                    src="./assets/homepage/fa-solid_smile.png"
-                    alt="Happy Customers"
-                  />
-                  <h3 data-target="15000">0</h3>
-                  <p>Trusted Customer</p>
+                  <div class="stat-box">
+                    <img
+                      src="./assets/homepage/fa-solid_smile.png"
+                      alt="Happy Customers"
+                    />
+                    <h3 data-target="15000">0</h3>
+                    <p>Trusted Customer</p>
+                  </div>
+                  <div class="stat-box">
+                    <img
+                      src="./assets/homepage/gridicons_house.png"
+                      alt="Houses Sold"
+                    />
+                    <h3 data-target="20000">0</h3>
+                    <p>Houses Sold</p>
+                  </div>
+                  <div class="stat-box">
+                    <img
+                      src="./assets/homepage/fluent_agents-28-filled.png"
+                      alt="Properties Listed"
+                    />
+                    <h3 data-target="75000">0</h3>
+                    <p>Property Listed</p>
+                  </div>
                 </div>
-                <div class="stat-box">
-                  <img
-                    src="./assets/homepage/gridicons_house.png"
-                    alt="Houses Sold"
-                  />
-                  <h3 data-target="20000">0</h3>
-                  <p>Houses Sold</p>
-                </div>
-                <div class="stat-box">
-                  <img
-                    src="./assets/homepage/fluent_agents-28-filled.png"
-                    alt="Properties Listed"
-                  />
-                  <h3 data-target="75000">0</h3>
-                  <p>Property Listed</p>
-                </div>
-              </div>
               </div>
             </div>
           </div>
@@ -274,7 +357,6 @@
                 <!-- Card 5 -->
                 <div class="swiper-slide">
                   <div class="swiper-card one">
-                    
                     <div class="card-content">
                       <div class="property-info">
                         <div class="title">Emily Wilson</div>

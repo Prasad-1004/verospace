@@ -69,6 +69,7 @@ li {
   margin: 0 auto;
   padding: 10px 0;
   border-radius: 30px;
+  width: 90%;
 }
 
 .nav-container {
@@ -132,6 +133,65 @@ li {
 
 
 .banner-section {
+  min-height: 100vh;
+  position: relative;
+  padding: 20px 0;
+}
+
+.banner-section .fluid-container {
+  min-height: inherit;
+}
+
+.container-wrapper {
+  min-height: inherit;
+  background: url("../assets/aboutus_page/Hero\ section.png") no-repeat center/cover;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  border-radius: 30px;
+  position: relative;
+  font-family: "Montserrat", sans-serif;
+  text-transform: uppercase;
+}
+
+.hero-content {
+  max-width: 1000px;
+  padding: 0 10px;
+}
+
+.hero-content h1 {
+  font-size: 2.5rem;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.highlight {
+  background-color: #543ad7;
+  padding: 0.3em 0.6em;
+  border-radius: 8px;
+  display: inline-block;
+  margin-top: 0.5em;
+}
+
+.subtext {
+  font-size: 1rem;
+  margin-top: 1rem;
+  color: #f1f1f1;
+}
+
+
+
+
+
+
+
+
+
+
+/* 
+.banner-section {
   height: 100vh;
   position: relative;
 }
@@ -179,7 +239,7 @@ li {
   font-size: 1rem;
   margin-top: 1rem;
   color: #f1f1f1;
-}
+} */
 
 /* ===== About Us Sections ===== */
 
@@ -767,7 +827,8 @@ li {
 @media (max-width: 768px) {
   /* Navbar */
   .navbar {
-    top: 25px;
+    top: 40px;
+    width: 95%;
   }
 
   .nav-left,
@@ -776,7 +837,7 @@ li {
     width: 100%;
     display: none;
     margin-top: 20px;
-    margin-bottom: 20px;
+  
   }
 
   .nav-left.active,
@@ -791,8 +852,14 @@ li {
     margin-bottom: 10px;
   }
 
-  .logo-icon {
+   .logo-icon {
     height: 30px;
+    width: auto;
+  }
+
+  .logo-link img {
+    width: 15%;
+    object-fit: contain;
   }
 
   .burger {
@@ -857,7 +924,7 @@ li {
 
   /* Banner Section */
   .hero-content h1 {
-    font-size: 2rem;
+    font-size: 18px;
   }
 
   /* Newsletter Section */
